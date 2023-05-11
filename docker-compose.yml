@@ -1,0 +1,24 @@
+version: '3'
+services:
+  backend:
+    image: backend-image
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./back-end/media:/app/back-end/media
+    networks:
+      - my-network
+
+  frontend:
+    image: frontend-image
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+    volumes:
+      - ./back-end/media:/app/back-end/cmd/media
+
+networks:
+  my-network:

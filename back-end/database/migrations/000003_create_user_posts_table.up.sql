@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS "user_posts" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "userId" INTEGER NOT NULL,
+    "title" TEXT NOT NULL,
+    "body" TEXT NOT NULL,
+    "img" TEXT NOT NULL DEFAULT "",
+    "privacy" TEXT NOT NULL DEFAULT "Public",
+    "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE
+);

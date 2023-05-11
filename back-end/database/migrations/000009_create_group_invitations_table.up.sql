@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS "group_invitations" (
+    "groupId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
+    "invitedUserId" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (groupId) REFERENCES groups (id) ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE
+);

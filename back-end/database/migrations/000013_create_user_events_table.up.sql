@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS "user_events" (
+    "eventId" INTEGER NOT NULL,
+    "userId" INTEGER NOT NULL,
+    "status" INTEGER NOT NULL,
+    "createdAt" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (eventId) REFERENCES group_events (id) ON DELETE CASCADE,
+    FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE
+);
